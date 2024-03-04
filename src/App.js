@@ -1,26 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
-import convert from './utils.js'
+import React from 'react';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import'./App.css';
+import CurrencyConverter from './CurrencyConverter';
 
-function App() {
+const Home = () => {
+  return <h2>Home</h2>;
+}
+
+const NotFound = () => {
+  return <h2>404 Not Found</h2>
+}
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <div className="container">
+        <h2>Currency Converter</h2>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/CurrencyConverter/">Currency Converter</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <Routes>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/CurrencyConverter" element={<CurrencyConverter />} />
+        <Route element={<NotFound />} />
+      </Routes>
+    </Router>
+  
+  )
 }
 
 export default App;
