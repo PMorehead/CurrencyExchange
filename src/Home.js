@@ -88,10 +88,22 @@ class CurrencyRates extends React.Component {
         <div className='row'>
           <div className='col'></div>
           <div className='col-1'>
+            <br />
             {ratesElements}
           </div>
           <div className='col'></div>
         </div>
+        <footer>
+          <div class="row bg-light">
+            <div class="col fixed-bottom bg-light text-center">
+              <a className='footer-link' href="https://earnest-sorbet-b49b4e.netlify.app/">Portfolio</a>
+              <span> | </span>
+              <a className='footer-link' href="https://github.com/PMorehead">GitHub</a>
+              <span> | </span>
+              <a className='footer-link' href="mailto:patrick.a.morehead@gmail.com">Email</a>
+            </div>
+          </div>
+        </footer>
       </div>
     )
   }

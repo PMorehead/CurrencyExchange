@@ -155,7 +155,8 @@ class CurrencyConverter extends React.Component {
               <option value="ZAR">ZAR</option>
             </select>
             <input value={amount1} onChange={this.handleChangeAmount1} type="number" name="currency1" />
-            <span className="mx-3">=</span>
+            <span className="mx-3 d-none d-md-inline">=</span>
+            <p className='d-block d-md-none'>=</p>
             <input value={amount2} onChange={this.handleChangeAmount2} type="number" name="currency2" />
             <select className='m-2' name="cur2" defaultValue="EUR" onChange={this.handleChangeCur2}>
               <option value="AUD">AUD</option>
@@ -194,7 +195,19 @@ class CurrencyConverter extends React.Component {
             </select>
           </div>
         </div>
+        <footer>
+          <div class="row bg-light">
+            <div class="col fixed-bottom bg-light text-center">
+              <a className='footer-link'href="https://earnest-sorbet-b49b4e.netlify.app/">Portfolio</a>
+              <span> | </span>
+              <a className='footer-link' href="https://github.com/PMorehead">GitHub</a>
+              <span> | </span>
+              <a className='footer-link' href="mailto:patrick.a.morehead@gmail.com">Email</a>
+            </div>
+          </div>
+        </footer>
       </div>
+      
     )
   }
 }

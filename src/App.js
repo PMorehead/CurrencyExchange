@@ -12,11 +12,13 @@ const NotFound = () => {
 const App = () => {
   return (
     <Router>
-      <div className="container">
-        <h2>Currency Converter</h2>
-        <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-          <Link className='navbar-brand m-2' to="/">Exchange Rates</Link>
-          <Link className='navbar-brand' to="/CurrencyConverter/">Currency Converter</Link>
+      <div className="container bg-light text-center">
+        <h2 className='d-md-none'>Patrick's Currency Converter</h2>
+        <nav className='navbar navbar-expand navbar-light bg-light'>
+          <span className='m-1 navbar-brand d-none d-md-inline'>Patrick's Currency Convterter</span>
+          <Link className='m-2 nav-link' to="/">Exchange Rates</Link>
+          <span> | </span>
+          <Link className='m-2 nav-link' to="/CurrencyConverter/">Currency Converter</Link>
         </nav>
       </div>
       <Routes>
