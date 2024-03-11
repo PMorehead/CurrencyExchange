@@ -3,7 +3,6 @@ import { json, checkStatus} from './utils.js';
 
 class CurrencyConverter extends React.Component {
   constructor(props) {
-    console.log("constructor");
     super(props);
     this.state = {
       rate: 0.89,
@@ -14,7 +13,6 @@ class CurrencyConverter extends React.Component {
       error: ''
     };
 
-    // changed from this.handleChangeCur1.bind.this to this.handleChangeCur1.bind(this)
     this.handleChangeCur1 = this.handleChangeCur1.bind(this);
     this.handleChangeCur2 = this.handleChangeCur2.bind(this);
     this.handleChangeAmount1 = this.handleChangeAmount1.bind(this);
@@ -32,7 +30,6 @@ class CurrencyConverter extends React.Component {
 
 
   handleChangeAmount1(event) {
-    console.log('handleChangeAmount1');
     const input = parseFloat(event.target.value);
     if(Number.isNaN(input)) {
       this.setState({
@@ -56,7 +53,6 @@ class CurrencyConverter extends React.Component {
 
   handleChangeAmount2(event) {
     const input = parseFloat(event.target.value);
-    console.log(input);
     if (Number.isNaN(input)) {
       this.setState({
         amount1: '',
@@ -77,12 +73,9 @@ class CurrencyConverter extends React.Component {
   }
 
   handleChangeCur1(event) {
-    console.log(event);
     const input = event.target.value;
-    console.log(input);
     this.setState({ cur1 : input }, () =>{
       fetch(`https://api.frankfurter.app/latest?from=${this.state.cur1}&to=${this.state.cur2}`).then(checkStatus).then(json).then((data) => {
-      console.log(data);
 
         this.setState({
           rate: data.rates[this.state.cur2]
@@ -101,7 +94,7 @@ class CurrencyConverter extends React.Component {
     const input = event.target.value;
     this.setState({ cur2: input }, () => {
       fetch(`https://api.frankfurter.app/latest?from=${this.state.cur1}&to=${this.state.cur2}`).then(checkStatus).then(json).then((data) => {
-        console.log(data);
+
         this.setState({
           rate: data.rates[this.state.cur2]
         }, () => {
@@ -126,7 +119,7 @@ class CurrencyConverter extends React.Component {
         </div>
         <div className="row text-center">
           <div className="col-12">
-            <select name="cur1" defaultValue="USD" onChange={this.handleChangeCur1}>
+            <select name="cur1" className='m-2' defaultValue="USD" onChange={this.handleChangeCur1}>
               <option value="AUD">AUD</option>
               <option value="BGN">BGN</option>
               <option value="BRL">BRL</option>
@@ -164,7 +157,7 @@ class CurrencyConverter extends React.Component {
             <input value={amount1} onChange={this.handleChangeAmount1} type="number" name="currency1" />
             <span className="mx-3">=</span>
             <input value={amount2} onChange={this.handleChangeAmount2} type="number" name="currency2" />
-            <select name="cur2" defaultValue="EUR" onChange={this.handleChangeCur2} >
+            <select className='m-2' name="cur2" defaultValue="EUR" onChange={this.handleChangeCur2}>
               <option value="AUD">AUD</option>
               <option value="BGN">BGN</option>
               <option value="BRL">BRL</option>
