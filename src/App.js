@@ -16,7 +16,7 @@ const App = () => {
         <h2 className='d-md-none'>Patrick's Currency Converter</h2>
         <nav className='navbar navbar-expand navbar-light bg-light'>
           <span className='m-1 navbar-brand d-none d-md-inline'>Patrick's Currency Convterter</span>
-          <Link className='m-2 nav-link' to="/CurrencyExchange">Exchange Rates</Link>
+          <Link className='m-2 nav-link' to="/CurrencyExchange/">Exchange Rates</Link>
           <span> | </span>
           <Link className='m-2 nav-link' to="/CurrencyConverter/">Currency Converter</Link>
         </nav>
